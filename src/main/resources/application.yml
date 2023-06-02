@@ -1,0 +1,15 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          cognito:
+            clientId:
+            clientSecret:
+            scope: openid
+            redirect-uri: http://localhost:8080/login/oauth2/code/cognito
+            clientName: cognito_oauth
+        provider:
+          cognito:
+            issuerUri:
+            user-name-attribute: username

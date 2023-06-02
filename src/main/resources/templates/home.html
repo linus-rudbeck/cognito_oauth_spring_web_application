@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+
+<h1>Welcome home page</h1>
+
+<p>This is the home page</p>
+
+<p th:if="${loggedIn}">
+    Username:
+    <b th:text="${username}"></b>
+</p>
+
+<form action="/logout" method="post" th:if="${loggedIn}">
+    <input
+        type="hidden"
+        th:name="${_csrf.parameterName}"
+        th:value="${_csrf.token}"/>
+
+    <input type="submit" value="Logout">
+</form>
+
+<p th:unless="${loggedIn}">
+    <a href="/login">Log in</a>
+</p>
+
+</body>
+</html>
